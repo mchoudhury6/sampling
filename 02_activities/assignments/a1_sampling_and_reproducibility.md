@@ -10,12 +10,23 @@ Modify the number of repetitions in the simulation to 100 (from the original 100
 
 Alter the code so that it is reproducible. Describe the changes you made to the code and how they affected the reproducibility of the script file. The output does not need to match Whitby’s original blogpost/graphs, it just needs to produce the same output when run multiple times
 
-# Author: YOUR NAME
+# Author: Mahdi Choudhury
 
-```
-Please write your explanation here...
-
-```
+- The **whitby_covid_tracing.py** simulation explores how contact tracing can lead to biased results.
+- It shows that large, organized events like weddings are more likely to be overrepresented in traced COVID-19 cases.
+- In contrast, smaller, informal gatherings such as brunches are underrepresented in traced cases.
+- The model simulates a set number of people attending two types of events: weddings and brunches.
+- Weddings are large and structured, making them easier to trace, while brunches are smaller and harder to track.
+- Each person at an event has a 10% chance of infection, which is modeled using a binomial distribution.
+- In the primary contact tracing stage, there is a 20% chance that an infected individual is traced.
+- This step introduces bias, as only a fraction of infections are linked to events.
+- In secondary contact tracing, if multiple infections occur from the same event, the entire event is fully investigated.
+- This secondary tracing amplifies the bias, favoring large events like weddings.
+- The simulation runs 1000 times, and the results are aggregated into a histogram.
+- The histogram shows a clear overrepresentation of weddings in the traced cases, confirming the bias.
+- To assess reproducibility, the number of repetitions was reduced from 1000 to 100.
+- The reduced repetitions revealed significant result variability, showing the model's stochastic nature.
+- A random seed (`np.random.seed(42)`) was added to ensure consistent results across multiple runs, improving reproducibility.
 
 
 ## Criteria
